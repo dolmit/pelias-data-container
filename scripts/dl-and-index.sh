@@ -27,19 +27,13 @@ node scripts/create_index
 
 $SCRIPTS/oa-loader.sh
 $SCRIPTS/osm-loader.sh
-$SCRIPTS/nlsfi-loader.sh
+#$SCRIPTS/nlsfi-loader.sh
 $SCRIPTS/gtfs-loader.sh
 
 
 #=================
 # Index everything
 #=================
-
-node $TOOLS/pelias-nlsfi-places-importer/lib/index -d $DATA/nls-places
-echo '###### nlsfi places done'
-
-node $TOOLS/polylines/bin/cli.js --config --db
-echo '###### polylines done'
 
 node $TOOLS/openstreetmap/index
 echo '###### openstreetmap done'
@@ -64,8 +58,7 @@ function import_router {
     done
 }
 
-import_router router-finland
-import_router router-waltti
+import_router router-estonia
 echo '###### gtfs done'
 
 #import openaddresses data

@@ -27,8 +27,8 @@
   "imports": {
     "defaultAdminLayers": ["localadmin", "locality", "neighbourhood", "region", "postalcode"],
     "defaultCountry": {
-      "name": "Suomi",
-      "abbr": "FIN"
+      "name": "Eesti",
+      "abbr": "EST"
     },
     "adminLookup": {
       "enabled": true,
@@ -37,22 +37,19 @@
       "dropUnmapped": true
     },
     "openstreetmap": {
+      "download": [
+        { "sourceURL": "http://download.geofabrik.de/europe/estonia-latest.osm.pbf" }
+      ],
       "datapath": "/mnt/data/openstreetmap/",
       "leveldbpath": "/tmp",
       "import": [{
-        "filename": "finland.osm.pbf",
+        "filename": "estonia-latest.osm.pbf",
         "importVenues": true
       }]
     },
     "openaddresses": {
       "datapath": "/mnt/data/openaddresses/",
       "adminLayers": ["localadmin", "locality", "neighbourhood", "region"]
-    },
-    "polyline": {
-      "datapath": "/mnt/data/",
-      "files": [
-        "finland.polylines"
-      ]
     },
     "whosonfirst": {
       "datapath": "/mnt/data/whosonfirst/wof_data"

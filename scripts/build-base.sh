@@ -8,7 +8,7 @@
 
 set -e
 
-ORG=${ORG:-hsldevcom}
+ORG=${ORG:-dolmit}
 DOCKER_IMAGE=pelias-data-container-base
 DOCKER_TAG=${DOCKER_TAG:-$TRAVIS_BUILD_ID}
 DOCKER_TAGGED_IMAGE=$ORG/$DOCKER_IMAGE:$DOCKER_TAG
