@@ -65,9 +65,6 @@ echo '###### gtfs done'
 cd  $TOOLS/openaddresses
 
 # first import swedish OA docs
-node import.js --language=sv
-echo '###### openaddresses/sv done'
+node import.js $DATA/openaddresses/ee/
+echo '###### openaddresses/ee done'
 
-# then import and merge fi data with sv docs
-node import.js --language=fi --merge --merge-fields=name
-echo '###### openaddresses/fi done'

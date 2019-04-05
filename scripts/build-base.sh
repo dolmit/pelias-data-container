@@ -8,7 +8,7 @@
 
 set -e
 
-ORG=${ORG:-dolmit}
+ORG=${ORG:-peatusee.azurecr.io}
 DOCKER_IMAGE=pelias-data-container-base
 DOCKER_TAG=${DOCKER_TAG:-$TRAVIS_BUILD_ID}
 DOCKER_TAGGED_IMAGE=$ORG/$DOCKER_IMAGE:$DOCKER_TAG

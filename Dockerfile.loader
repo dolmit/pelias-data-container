@@ -1,4 +1,4 @@
-FROM hsldevcom/pelias-data-container-base
+FROM peatusee.azurecr.io/pelias-data-container-base
 
 ARG MMLAPIKEY
 

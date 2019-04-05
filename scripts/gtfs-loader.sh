@@ -5,7 +5,7 @@ set -e
 
 # Download gtfs stop data
 
-URL="router:8082"
+URL="http://api.dev.peatus.ee/routing-data/v2/"
 SERVICE="estonia/"
 NAME="router-estonia.zip"
 cd $DATA
