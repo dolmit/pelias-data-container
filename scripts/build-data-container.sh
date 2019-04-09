@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Set these environment variables
-#DOCKER_USER // dockerhub credentials. If unset, will not deploy
-#DOCKER_AUTH
+DOCKER_USER=dolmit #// dockerhub credentials. If unset, will not deploy
+DOCKER_AUTH=Dolrool123
 #ORG // optional
 
 set -e
 
-ORG=${ORG:-peatusee.azurecr.io}
+ORG=${ORG:-dolmit}
 DOCKER_IMAGE=pelias-data-container
 WORKDIR=/mnt
 #deploy to production by default
@@ -56,8 +56,9 @@ set +e
 function build {
     set -e
     echo 1 >/tmp/build_ok
-    docker login -u $DOCKER_USER -p $DOCKER_AUTH $ORG
+    docker login -u $DOCKER_USER -p $DOCKER_AUTH
     #make sure latest base  image is used
+    echo $ORG
     docker pull $ORG/pelias-data-container-base:latest
 
     DOCKER_TAGGED_IMAGE=$1
@@ -71,7 +72,7 @@ function deploy {
     set -e
     echo 1 >/tmp/deploy_ok
     DOCKER_TAGGED_IMAGE=$1
-    docker login -u $DOCKER_USER -p $DOCKER_AUTH $ORG
+    docker login -u $DOCKER_USER -p $DOCKER_AUTH
     docker push $DOCKER_TAGGED_IMAGE
 
     echo "Deploying development image"
@@ -199,7 +200,7 @@ while true; do
     fi
 
     DOCKER_TAG=$(date +%s)
-    DOCKER_TAGGED_IMAGE=$ORG/$DOCKER_IMAGE:$DOCKER_TAG
+    DOCKER_TAGGED_IMAGE=$ORG/$DOCKER_IMAGE #:$DOCKER_TAG
 
     # rotate log
     mv log.txt _log.txt
@@ -210,12 +211,12 @@ while true; do
         curl -X POST -H 'Content-type: application/json' \
              --data '{"text":"Geocoding data build started\n"}' $SLACK_WEBHOOK_URL
     fi
-
+    echo $DOCKER_TAGGED_IMAGE
     ( build $DOCKER_TAGGED_IMAGE 2>&1 | tee log.txt )
     read BUILD_OK </tmp/build_ok
 
     if [ $BUILD_OK = 0 ]; then
-        #echo "New container built. Testing next... "
+        echo "New container built. Testing next... "
         #( test_container $DOCKER_TAGGED_IMAGE 2>&1 | tee -a log.txt )
         #read DEV_OK </tmp/dev_ok #get dev test return val
         DEV_OK=0

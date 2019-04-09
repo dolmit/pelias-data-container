@@ -1,4 +1,4 @@
-FROM peatusee.azurecr.io/pelias-data-container-base
+FROM dolmit/pelias-data-container-base
 
 ARG MMLAPIKEY
 
