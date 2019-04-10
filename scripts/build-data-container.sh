@@ -4,12 +4,12 @@
 #ORG // optional
 
 set -e
-env
+
 export ORG=${ORG:-dolmit}
 export DOCKER_IMAGE=pelias-data-container
 export WORKDIR=/mnt
-echo "after export"
-env
+
+
 #deploy to production by default
 PROD_DEPLOY=${PROD_DEPLOY:-1}
 
@@ -195,8 +195,8 @@ while true; do
         SLEEP=$(($SLEEP + $BUILD_INTERVAL_SECONDS))
 
         echo "Sleeping $SLEEP seconds until the next build ..."
-        #sleep $SLEEP
-	sleep 120
+        sleep $SLEEP
+	#sleep 120
     fi
 
     DOCKER_TAG=$(date +%s)
