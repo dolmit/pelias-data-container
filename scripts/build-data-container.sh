@@ -25,7 +25,7 @@ BUILD_TIME=${BUILD_TIME:-23:00:00}
 
 cd $WORKDIR
 export PELIAS_CONFIG=$WORKDIR/pelias.json
-export 
+
 # param1: organization name
 # param2: git project name
 # param3: optional git commit id
