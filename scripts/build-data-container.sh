@@ -7,9 +7,9 @@
 
 set -e
 
-ORG=${ORG:-peatusee.azurecr.io}
-DOCKER_IMAGE=pelias-data-container
-WORKDIR=/mnt
+export ORG=${ORG:-peatusee.azurecr.io}
+export DOCKER_IMAGE=pelias-data-container
+export WORKDIR=/mnt
 #deploy to production by default
 PROD_DEPLOY=${PROD_DEPLOY:-1}
 
@@ -24,7 +24,7 @@ BUILD_TIME=${BUILD_TIME:-23:00:00}
 
 cd $WORKDIR
 export PELIAS_CONFIG=$WORKDIR/pelias.json
-
+export 
 # param1: organization name
 # param2: git project name
 # param3: optional git commit id
@@ -194,8 +194,8 @@ while true; do
         SLEEP=$(($SLEEP + $BUILD_INTERVAL_SECONDS))
 
         echo "Sleeping $SLEEP seconds until the next build ..."
-        sleep $SLEEP
-	#sleep 120
+        #sleep $SLEEP
+	sleep 120
     fi
 
     DOCKER_TAG=$(date +%s)
