@@ -56,7 +56,7 @@ set +e
 function build {
     set -e
     echo 1 >/tmp/build_ok
-    docker login -u $DOCKER_USER -p $DOCKER_AUTH
+    docker login -u $DOCKER_USER -p $DOCKER_AUTH $ORG
     #make sure latest base  image is used
     echo $ORG
     docker pull $ORG/pelias-data-container-base:latest
@@ -72,7 +72,7 @@ function deploy {
     set -e
     echo 1 >/tmp/deploy_ok
     DOCKER_TAGGED_IMAGE=$1
-    docker login -u $DOCKER_USER -p $DOCKER_AUTH
+    docker login -u $DOCKER_USER -p $DOCKER_AUTH $ORG
     docker push $DOCKER_TAGGED_IMAGE
 
     echo "Deploying development image"

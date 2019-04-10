@@ -15,7 +15,7 @@ DOCKER_TAGGED_IMAGE=$ORG/$DOCKER_IMAGE #:$DOCKER_TAG
 docker build -t="$DOCKER_TAGGED_IMAGE" -f Dockerfile.builder .
 
 #if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
-    docker login -u $DOCKER_USER -p $DOCKER_AUTH
+    docker login -u $DOCKER_USER -p $DOCKER_AUTH $ORG
     docker push $ORG/$DOCKER_IMAGE #:$DOCKER_TAG
    # docker tag $ORG/$DOCKER_IMAGE:$DOCKER_TAG $ORG/$DOCKER_IMAGE:latest
     docker tag $ORG/$DOCKER_IMAGE $ORG/$DOCKER_IMAGE:latest
