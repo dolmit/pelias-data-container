@@ -1,16 +1,15 @@
 #!/bin/bash
 
 # Set these environment variables
-DOCKER_USER=dolmit #// dockerhub credentials. If unset, will not deploy
-DOCKER_AUTH=Dolrool123
 #ORG // optional
 
 set -e
-
-export ORG=${ORG:-peatusee.azurecr.io}
+env
+export ORG=${ORG:-dolmit}
 export DOCKER_IMAGE=pelias-data-container
 export WORKDIR=/mnt
-
+echo "after export"
+env
 #deploy to production by default
 PROD_DEPLOY=${PROD_DEPLOY:-1}
 

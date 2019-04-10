@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Set these environment variables
-DOCKER_USER=dolmit #// dockerhub credentials
-DOCKER_AUTH=Dolrool123
 #DOCKER_TAG // build id
 #ORG // optional
 
