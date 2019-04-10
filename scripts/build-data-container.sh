@@ -7,15 +7,10 @@ DOCKER_AUTH=Dolrool123
 
 set -e
 
-<<<<<<< HEAD
 export ORG=${ORG:-peatusee.azurecr.io}
 export DOCKER_IMAGE=pelias-data-container
 export WORKDIR=/mnt
-=======
-ORG=${ORG:-dolmit}
-DOCKER_IMAGE=pelias-data-container
-WORKDIR=/mnt
->>>>>>> 2631a8876c0b8efb521ad790f8fcbcdfa5532dac
+
 #deploy to production by default
 PROD_DEPLOY=${PROD_DEPLOY:-1}
 
