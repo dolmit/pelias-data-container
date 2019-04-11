@@ -66,6 +66,6 @@ cd  $TOOLS/openaddresses
 
 # first import swedish OA docs
 #node import.js $DATA/openaddresses/ee/
-node import.js --language=et $DATA/openaddresses/ee/
+node import.js $DATA/openaddresses/ee/
 echo '###### openaddresses/ee done'
 
