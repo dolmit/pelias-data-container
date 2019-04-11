@@ -195,8 +195,8 @@ while true; do
         SLEEP=$(($SLEEP + $BUILD_INTERVAL_SECONDS))
 
         echo "Sleeping $SLEEP seconds until the next build ..."
-        sleep $SLEEP
-	#sleep 120
+        #sleep $SLEEP
+	sleep 120
     fi
 
     DOCKER_TAG=$(date +%s)
