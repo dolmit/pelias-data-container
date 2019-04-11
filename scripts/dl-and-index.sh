@@ -65,6 +65,7 @@ echo '###### gtfs done'
 cd  $TOOLS/openaddresses
 
 # first import swedish OA docs
-node import.js $DATA/openaddresses/ee/
+#node import.js $DATA/openaddresses/ee/
+node import.js --language=et
 echo '###### openaddresses/ee done'
 
